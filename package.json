@@ -1,0 +1,37 @@
+{
+  "name": "get-monorepo-packages",
+  "version": "0.0.0-development",
+  "description": "Get a list of packages from a monorepo",
+  "keywords": [
+    "yarn",
+    "workspaces",
+    "lerna"
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/azz/get-monorepo-packages.git",
+  "author": "Lucas Azzola <@azz>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "xo --env jest",
+    "test": "jest",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "globby": "^7.1.1",
+    "load-json-file": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "jest": "^22.0.4",
+    "prettier": "1.9.2",
+    "xo": "^0.18.2",
+    "semantic-release": "^11.0.2"
+  },
+  "xo": {
+    "extends": [
+      "plugin:prettier/recommended"
+    ]
+  }
+}
