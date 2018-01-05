@@ -7,6 +7,9 @@
     "workspaces",
     "lerna"
   ],
+  "files": [
+    "index.js"
+  ],
   "main": "index.js",
   "repository": "https://github.com/azz/get-monorepo-packages.git",
   "author": "Lucas Azzola <@azz>",
