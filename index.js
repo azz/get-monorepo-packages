@@ -17,9 +17,11 @@ const findPackages = (packageSpecs, rootDirectory) => {
     .reduce(
       (pkgDirs, pkgGlob) => [
         ...pkgDirs,
-        ...globby.sync(path.join(rootDirectory, pkgGlob), {
-          nodir: false,
-        }),
+        ...(globby.hasMagic(pkgGlob)
+          ? globby.sync(path.join(rootDirectory, pkgGlob), {
+              nodir: false,
+            })
+          : [path.join(rootDirectory, pkgGlob)]),
       ],
       []
     )
