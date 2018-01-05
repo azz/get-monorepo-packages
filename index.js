@@ -24,7 +24,7 @@ const findPackages = (packageSpecs, rootDirectory) => {
       []
     )
     .map(location => ({ location, package: loadPackage(location) }))
-    .filter(({ package: { name } }) => name);
+    .filter(({ package: { name } = {} }) => name);
 };
 
 const getPackages = directory => {
