@@ -2,7 +2,8 @@ const path = require('path');
 const getPackages = require('.');
 
 const LERNA_DIR = path.join(__dirname, 'fixture/lerna');
-const YARN_DIR = path.join(__dirname, 'fixture/yarn');
+const YARN_DIR_1 = path.join(__dirname, 'fixture/yarn');
+const YARN_DIR_2 = path.join(__dirname, 'fixture/yarn-2');
 
 expect.addSnapshotSerializer({
   test: value =>
@@ -18,7 +19,11 @@ describe('getPackages()', () => {
   });
 
   test('yarn matches snapshot', () => {
-    expect(getPackages(YARN_DIR)).toMatchSnapshot();
+    expect(getPackages(YARN_DIR_1)).toMatchSnapshot();
+  });
+
+  test('yarn 1.4.2+ matches snapshot', () => {
+    expect(getPackages(YARN_DIR_2)).toMatchSnapshot();
   });
 
   test('returns empty array when no packages', () => {
