@@ -17,6 +17,32 @@ Array [
 ]
 `;
 
+exports[`getPackages() yarn 1.4.2+ matches snapshot 1`] = `
+Array [
+  Object {
+    "location": "<cwd>/fixture/yarn-2/packages/bar",
+    "package": Object {
+      "name": "bar",
+      "version": "0.0.0",
+    },
+  },
+  Object {
+    "location": "<cwd>/fixture/yarn-2/packages/foo",
+    "package": Object {
+      "name": "foo",
+      "version": "0.0.0",
+    },
+  },
+  Object {
+    "location": "<cwd>/fixture/yarn-2/package-2",
+    "package": Object {
+      "name": "package-2",
+      "version": "0.0.0",
+    },
+  },
+]
+`;
+
 exports[`getPackages() yarn matches snapshot 1`] = `
 Array [
   Object {
