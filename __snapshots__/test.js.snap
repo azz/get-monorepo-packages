@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getPackages() bolt matches snapshot 1`] = `
+Array [
+  Object {
+    "location": "<cwd>/fixture/bolt/packages/bar",
+    "package": Object {
+      "name": "bar-workspace-package",
+      "version": "1.0.0",
+    },
+  },
+  Object {
+    "location": "<cwd>/fixture/bolt/packages/foo",
+    "package": Object {
+      "name": "foo-workspace-package",
+      "version": "1.0.0",
+    },
+  },
+]
+`;
+
 exports[`getPackages() lerna matches snapshot 1`] = `
 Array [
   Object {
