@@ -16,6 +16,23 @@ Array [
       "version": "1.0.0",
     },
   },
+  Object {
+    "location": "<cwd>/fixture/bolt/packages/foo/packages/baz",
+    "package": Object {
+      "dependencies": Object {
+        "bar-workspace-package": "^1.0.0",
+        "react": "^15.6.1",
+      },
+      "license": "MIT",
+      "name": "baz-workspace-package",
+      "scripts": Object {
+        "postinstall": "echo postinstall",
+        "preinstall": "echo preinstall",
+        "prepublish": "echo prepublish",
+      },
+      "version": "1.0.0",
+    },
+  },
 ]
 `;
 

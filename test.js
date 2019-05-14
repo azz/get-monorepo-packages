@@ -27,7 +27,7 @@ describe('getPackages()', () => {
     expect(getPackages(YARN_DIR_2)).toMatchSnapshot();
   });
 
-  test.only('bolt matches snapshot', () => {
+  test('bolt matches snapshot', () => {
     expect(getPackages(BOLT_DIR)).toMatchSnapshot();
   });
 
