@@ -10,6 +10,7 @@ Get a list of packages from a monorepo. Supports:
 
 * [Lerna](https://github.com/lerna/lerna)
 * [Yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/)
+* [Bolt](http://boltpkg.com/)
 
 ## Install
 
