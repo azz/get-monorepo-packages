@@ -41,11 +41,17 @@ const getPackages = directory => {
   const pkgJsonPath = path.join(directory, 'package.json');
   if (fs.existsSync(pkgJsonPath)) {
     const pkgJson = loadJsonFile.sync(pkgJsonPath);
-    if (pkgJson.workspaces) {
-      if (Array.isArray(pkgJson.workspaces)) {
-        return findPackages(pkgJson.workspaces, directory);
-      } else if (Array.isArray(pkgJson.workspaces.packages)) {
-        return findPackages(pkgJson.workspaces.packages, directory);
+    let workspaces = pkgJson.workspaces;
+
+    if (pkgJson.bolt) {
+      workspaces = pkgJson.bolt.workspaces;
+    }
+
+    if (workspaces) {
+      if (Array.isArray(workspaces)) {
+        return findPackages(workspaces, directory);
+      } else if (Array.isArray(workspaces.packages)) {
+        return findPackages(workspaces.packages, directory);
       }
     }
   }
