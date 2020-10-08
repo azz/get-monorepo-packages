@@ -26,6 +26,7 @@ const findPackages = (packageSpecs, rootDirectory) => {
       []
     )
     .map(location => ({ location, package: loadPackage(location) }))
+    .filter(({ location }) => !location.includes('node_modules'))
     .filter(({ package: { name } = {} }) => name);
 };
 
