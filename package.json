@@ -1,5 +1,5 @@
 {
-  "name": "get-monorepo-packages",
+  "name": "@joshuajaco/get-monorepo-packages",
   "version": "0.0.0-development",
   "description": "Get a list of packages from a monorepo",
   "keywords": [
