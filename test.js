@@ -7,9 +7,9 @@ const YARN_DIR_2 = path.join(__dirname, 'fixture/yarn-2');
 const BOLT_DIR = path.join(__dirname, 'fixture/bolt');
 
 expect.addSnapshotSerializer({
-  test: value =>
+  test: (value) =>
     typeof value === 'string' &&
-    (value.indexOf('\\') > -1 || value.indexOf(process.cwd()) > -1),
+    (value.includes('\\') || value.includes(process.cwd())),
   print: (value, serializer) =>
     serializer(value.replace(process.cwd(), '<cwd>').replace(/\\/g, '/')),
 });

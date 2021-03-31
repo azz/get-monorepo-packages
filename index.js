@@ -5,7 +5,7 @@ const path = require('path');
 const globby = require('globby');
 const loadJsonFile = require('load-json-file');
 
-const loadPackage = packagePath => {
+const loadPackage = (packagePath) => {
   const pkgJsonPath = path.join(packagePath, 'package.json');
   if (fs.existsSync(pkgJsonPath)) {
     return loadJsonFile.sync(pkgJsonPath);
@@ -13,24 +13,27 @@ const loadPackage = packagePath => {
 };
 
 const findPackages = (packageSpecs, rootDirectory) => {
-  return packageSpecs
-    .reduce(
-      (pkgDirs, pkgGlob) => [
-        ...pkgDirs,
-        ...(globby.hasMagic(pkgGlob)
-          ? globby.sync(path.join(rootDirectory, pkgGlob), {
-              onlyFiles: false,
-            })
-          : [path.join(rootDirectory, pkgGlob)]),
-      ],
-      []
-    )
-    .map(location => ({ location, package: loadPackage(location) }))
-    .filter(({ location }) => !location.includes('/node_modules/'))
-    .filter(({ package: { name } = {} }) => name);
+  return (
+    packageSpecs
+      // eslint-disable-next-line unicorn/no-array-reduce
+      .reduce(
+        (pkgDirs, pkgGlob) => [
+          ...pkgDirs,
+          ...(globby.hasMagic(pkgGlob)
+            ? globby.sync(path.join(rootDirectory, pkgGlob), {
+                onlyFiles: false,
+              })
+            : [path.join(rootDirectory, pkgGlob)]),
+        ],
+        []
+      )
+      .map((location) => ({ location, package: loadPackage(location) }))
+      .filter(({ location }) => !location.includes('/node_modules/'))
+      .filter(({ package: { name } = {} }) => name)
+  );
 };
 
-const getPackages = directory => {
+const getPackages = (directory) => {
   const lernaJsonPath = path.join(directory, 'lerna.json');
   if (fs.existsSync(lernaJsonPath)) {
     const lernaJson = loadJsonFile.sync(lernaJsonPath);
@@ -51,7 +54,9 @@ const getPackages = directory => {
     if (workspaces) {
       if (Array.isArray(workspaces)) {
         return findPackages(workspaces, directory);
-      } else if (Array.isArray(workspaces.packages)) {
+      }
+
+      if (Array.isArray(workspaces.packages)) {
         return findPackages(workspaces.packages, directory);
       }
     }
