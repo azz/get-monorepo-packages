@@ -20,8 +20,8 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "globby": "^7.1.1",
-    "load-json-file": "^4.0.0"
+    "globby": "^11.0.3",
+    "load-json-file": "^6.2.0"
   },
   "devDependencies": {
     "eslint": "^4.14.0",
