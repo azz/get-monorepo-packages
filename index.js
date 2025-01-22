@@ -30,12 +30,12 @@ const findPackages = (packageSpecs, rootDirectory) => {
 };
 
 const getPackages = directory => {
+
+  // if lerna (<7.0.0) specifies packages in lerna.json, use it.
   const lernaJsonPath = path.join(directory, 'lerna.json');
-  if (fs.existsSync(lernaJsonPath)) {
-    const lernaJson = loadJsonFile.sync(lernaJsonPath);
-    if (!lernaJson.useWorkspaces) {
+  const lernaJson = fs.existsSync(lernaJsonPath) ? loadJsonFile.sync(lernaJsonPath) : null;
+  if (lernaJson && lernaJson.packages) {
       return findPackages(lernaJson.packages, directory);
-    }
   }
 
   const pkgJsonPath = path.join(directory, 'package.json');

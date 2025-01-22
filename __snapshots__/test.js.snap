@@ -53,6 +53,40 @@ Array [
 ]
 `;
 
+exports[`getPackages() lerna6 matches snapshot 1`] = `
+Array [
+  Object {
+    "location": "<cwd>/fixture/lerna6/packages/bar",
+    "package": Object {
+      "name": "bar",
+    },
+  },
+  Object {
+    "location": "<cwd>/fixture/lerna6/packages/foo",
+    "package": Object {
+      "name": "foo",
+    },
+  },
+]
+`;
+
+exports[`getPackages() lerna7 matches snapshot 1`] = `
+Array [
+  Object {
+    "location": "<cwd>/fixture/lerna7/packages/bar",
+    "package": Object {
+      "name": "bar",
+    },
+  },
+  Object {
+    "location": "<cwd>/fixture/lerna7/packages/foo",
+    "package": Object {
+      "name": "foo",
+    },
+  },
+]
+`;
+
 exports[`getPackages() yarn 1.4.2+ matches snapshot 1`] = `
 Array [
   Object {
